@@ -67,7 +67,7 @@ class TestAllMethods(unittest.TestCase):
 		self.item3 = Item("Water", 1, 100)
 		self.item4 = Item("Fanta", 2, 60)
 		self.item5 = Item("CocaCola", 3, 40)
-		self.ware = Warehouse([Item("Beer", 6, 20), Item("Cider", 5, 25),Item("Water", 1, 100),Item("Fanta", 2, 60),Item("CocaCola", 3, 40)])
+		self.ware = Warehouse([self.item1, self.item2, self.item3])
 
 	## Check to see whether count_a works
 	def test_count_a(self):
@@ -80,7 +80,7 @@ class TestAllMethods(unittest.TestCase):
 	def test_add_item(self):
 		self.item6 = Item("Pepsi", 3, 40)
 		self.ware.add_item(self.item6)
-		self.assertEqual(self.ware.add_item(self.item6),self.ware.print_items())
+		self.assertEqual(self.ware.items,[self.item1, self.item2, self.item3, self.item6])
 		
 
 	## Check to see whether warehouse correctly returns the item with the most stock
@@ -96,9 +96,6 @@ class TestAllMethods(unittest.TestCase):
 		self.ware.add_item(self.item2)
 		self.ware.add_item(self.item3)
 		self.assertEqual(self.ware.get_max_price(),"Beer")
-
-		
-		
 
 def main():
 	unittest.main()
