@@ -17,7 +17,7 @@ class Item:
 		self.name = name
 		self.price = price
 		self.stock = stock
-
+		
 	# Print
 	def __str__(self):
 		return ("Item = {}, Price = {}, Stock = {}".format(self.name, self.price, self.stock))
